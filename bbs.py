@@ -37,3 +37,20 @@ def bbs_alg(bit):
         x0 = (x0**2) % N
 
     return x0%2
+
+def sbt(file):
+    f = open(file, "r")
+    ones = 0
+    for line in f:
+        ones = ones + line.count("1")
+
+    if ones > 9725 and ones < 10275:
+        print(f"Single bit test passed: {ones}")
+    else:
+        print(f"Single bit test not passed: {ones}")
+
+def st(file):
+    f = open(file, "r")
+    line = f.read().splitlines()
+    s = "".join(line)
+    
