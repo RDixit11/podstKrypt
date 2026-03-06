@@ -20,7 +20,7 @@ def get_prime():
         if check_prime(x) == True and x % 4 == 3:
             return x
 
-def bss_alg(bit):
+def bbs_alg(bit):
     p = get_prime()
     q = get_prime()
 
@@ -36,4 +36,4 @@ def bss_alg(bit):
     for i in range(0, bit):
         x0 = (x0**2) % N
 
-    return p, q, N, x0%2
+    return x0%2

@@ -1,11 +1,11 @@
 import sys
-import bss
+import bbs
 
 def main():
     match sys.argv[1]:
-        case "bss":
-            print("Blum-Blum_Shub algorithm:")
-            p,q,N,res = bss.bss_alg(7)
+        case "bbs":
+            bit = int(sys.argv[2])
+            res = bbs.bbs_alg(bit)
             print(res)
 
 if __name__ == ("__main__"):
