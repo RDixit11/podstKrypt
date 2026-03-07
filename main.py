@@ -5,13 +5,15 @@ def main():
     match sys.argv[1]:
         case "bbs":
             bit = int(sys.argv[2])
-            res = bbs.bbs_alg(bit)
-            print(res)
-        case "bbs-test":
+            print(bbs.bbs_alg(bit))
+        case "sbt":
             file = sys.argv[2]
-            bbs.sbt(file)
+            print(bbs.sbt(file))
         case "st":
             file = sys.argv[2]
-            bbs.st(file)
+            res = bbs.st(file)
+            for i in range(len(res)):
+                print(res[i])
+
 if __name__ == ("__main__"):
     main()

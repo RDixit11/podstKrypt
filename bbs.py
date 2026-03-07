@@ -45,12 +45,46 @@ def sbt(file):
         ones = ones + line.count("1")
 
     if ones > 9725 and ones < 10275:
-        print(f"Single bit test passed: {ones}")
+        res = f"Single bit test passed: {ones}"
     else:
-        print(f"Single bit test not passed: {ones}")
+        res = f"Single bit test not passed: {ones}" 
+    return res
 
 def st(file):
-    f = open(file, "r")
-    line = f.read().splitlines()
-    s = "".join(line)
-    
+    with open(file) as f:
+        s = "".join(f.read().splitlines())
+
+    count = {i:0 for i in range(1,7)}
+
+    length = 0
+
+    for b in s:
+        if b == '1':
+            length += 1
+        else:
+            if length > 0:
+                count[min(length,6)] += 1
+                length = 0
+
+    if length > 0:
+        count[min(length,6)] += 1
+
+    res = []
+
+    ranges = {
+        1:(2315,2685),
+        2:(1114,1386),
+        3:(527,723),
+        4:(240,384),
+        5:(103,209),
+        6:(103,209)
+    }
+
+    for i in range(1,7):
+        low, high = ranges[i]
+        if low < count[i] < high:
+            res.append(f"Test passed for series length {i}")
+        else:
+            res.append(f"Test FAILED for series length {i}")
+
+    return res
