@@ -88,3 +88,23 @@ def st(file):
             res.append(f"Test FAILED for series length {i}")
 
     return res
+
+def lst(file):
+    max_s = 1
+    curr = 1
+    f = open(file, "r")
+    s = "".join(f.read().splitlines())
+    for i in range(len(s)):
+        if s[i] == s[i-1]:
+            curr = curr + 1
+            max_s = max(max_s, curr)
+        else:
+            curr = 1
+    if max_s < 26:
+        res = f"Test passed - longest series: {max_s}"
+    else:
+        res = f"Test not passed - lognest series: {max_s}"
+    return res
+
+
+

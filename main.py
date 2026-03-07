@@ -14,6 +14,10 @@ def main():
             res = bbs.st(file)
             for i in range(len(res)):
                 print(res[i])
+        case "lst":
+            file = sys.argv[2]
+            print(bbs.lst(file))
+
 
 if __name__ == ("__main__"):
     main()
