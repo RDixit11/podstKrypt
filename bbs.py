@@ -1,5 +1,6 @@
 import random
 import math
+from itertools import permutations
 
 def check_prime(n):
     if n == 1:
@@ -39,20 +40,23 @@ def bbs_alg(bit):
     return x0%2
 
 def sbt(file):
+    print("Single bit test:")
     f = open(file, "r")
     ones = 0
     for line in f:
         ones = ones + line.count("1")
 
     if ones > 9725 and ones < 10275:
-        res = f"Single bit test passed: {ones}"
+        res = f"Test passed: {ones}"
     else:
-        res = f"Single bit test not passed: {ones}" 
+        res = f"Test failed passed: {ones}" 
     return res
 
 def st(file):
     with open(file) as f:
         s = "".join(f.read().splitlines())
+
+    print("\nSeries test:")
 
     count = {i:0 for i in range(1,7)}
 
@@ -85,11 +89,12 @@ def st(file):
         if low < count[i] < high:
             res.append(f"Test passed for series length {i}")
         else:
-            res.append(f"Test FAILED for series length {i}")
+            res.append(f"Test failed for series length {i}")
 
     return res
 
 def lst(file):
+    print("\nLong series test:")
     max_s = 1
     curr = 1
     f = open(file, "r")
@@ -103,8 +108,32 @@ def lst(file):
     if max_s < 26:
         res = f"Test passed - longest series: {max_s}"
     else:
-        res = f"Test not passed - lognest series: {max_s}"
+        res = f"Test failed - lognest series: {max_s}"
     return res
 
+def rt(file):
+    print("\nRelation test:")
+    f = open(file, "r")
+    s = "".join(f.read().splitlines())
+    chunk_list = []
+    for i in range(0,len(s), 4):
+        num = s[i:i+4]
+        chunk_list.append(num)
 
+    bin_list = []
 
+    for i in range(0, 16):
+        bin_list.append(f"{i:04b}")
+    
+    count_num = []
+    for i in range(0, len(bin_list)):
+        x = chunk_list.count(bin_list[i])
+        power = x**2
+        count_num.append(power)
+    
+    val = 16/5000 * sum(count_num) - 5000
+    if val > 2.16 and val < 46.17:
+        res = f"Test  passed: {val:.2f}"
+    else:
+        res = f"Test failed: {val:.2f}"
+    return res

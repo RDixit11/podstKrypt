@@ -6,18 +6,17 @@ def main():
         case "bbs":
             bit = int(sys.argv[2])
             print(bbs.bbs_alg(bit))
-        case "sbt":
+        case "bbs-tests":
             file = sys.argv[2]
             print(bbs.sbt(file))
-        case "st":
-            file = sys.argv[2]
+            
             res = bbs.st(file)
             for i in range(len(res)):
                 print(res[i])
-        case "lst":
-            file = sys.argv[2]
+            
             print(bbs.lst(file))
-
+            
+            print(bbs.rt(file))
 
 if __name__ == ("__main__"):
     main()
