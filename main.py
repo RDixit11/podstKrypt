@@ -16,7 +16,7 @@ def main():
             
             print(bbs.lst(file))
             
-            print(bbs.rt(file))
+            print(bbs.pt(file))
 
 if __name__ == ("__main__"):
     main()

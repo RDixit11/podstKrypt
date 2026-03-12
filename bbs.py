@@ -111,7 +111,7 @@ def lst(file):
         res = f"Test failed - lognest series: {max_s}"
     return res
 
-def rt(file):
+def pt(file):
     print("\nRelation test:")
     f = open(file, "r")
     s = "".join(f.read().splitlines())
