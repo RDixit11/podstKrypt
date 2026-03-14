@@ -9,10 +9,15 @@ def main():
             with open(file, "w") as f:
                 f.write(f"{str(n)}\n")
                 f.write(f"{str(pub)}\n")
-                f.write(f"{str(n)}\n")
                 f.write(str(priv))
-            print(pub)
-            print(priv)
+            print(f"public key: {n}, {pub}")
+            print(f"private key: {n}, {priv}")
+        case "cipher-mess":
+            file = sys.argv[2]
+            mess = sys.argv[3]
+            mess = list(mess)
+            mess_asc = [ord(word) for word in mess]
+            print(mess_asc)
 
 if __name__ == "__main__":
     main()

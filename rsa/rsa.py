@@ -23,21 +23,15 @@ def get_prime():
 def generate_keys():
     p = get_prime()
     q = get_prime()
-    print(p,q)
 
     n = p*q
     
     phi = (p-1)*(q-1)
-    print(phi)
     e = random.randint(1000,9999)
     while math.gcd(phi, e) != 1:
         e = random.randint(1000,9999)
 
-    print(e)
-
     d = pow(e, -1, phi)
 
-    print(d)
     return n,e,d
-
 
