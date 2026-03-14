@@ -1,6 +1,5 @@
 import random
 import math
-from itertools import permutations
 
 def check_prime(n):
     if n == 1:
@@ -17,7 +16,7 @@ def check_prime(n):
 
 def get_prime():
     while True:
-        x = random.randint(10000, 100000)
+        x = random.randint(1000, 9999)
         if check_prime(x) == True and x % 4 == 3:
             return x
 
@@ -27,12 +26,12 @@ def bbs_alg(bit):
 
     N = p*q
 
-    x = random.randint(2, N-1)
+    x = random.randint(1000, 9999)
     while math.gcd(x, N) != 1:
-        x = random.randint(2, N-1)
+        x = random.randint(1000, 9999)
 
-    seed = (x**2) % N
-    x0 = seed
+    x0 = (x**2) % N
+    
 
     for i in range(0, bit):
         x0 = (x0**2) % N
@@ -112,7 +111,7 @@ def lst(file):
     return res
 
 def pt(file):
-    print("\nRelation test:")
+    print("\nPoker test:")
     f = open(file, "r")
     s = "".join(f.read().splitlines())
     chunk_list = []
