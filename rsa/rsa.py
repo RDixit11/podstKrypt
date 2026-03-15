@@ -35,13 +35,23 @@ def generate_keys():
 
     return n,e,d
 
-def cipher_mess(mess, n, e):
+def encrypt_mess(mess, n, e):
     mess_int = [int(letter,16) for letter in mess]
     
-    encrypt_mess=[]
+    en_mess=[]
 
     for letter in mess_int:
         c = pow(letter, e, n)
-        encrypt_mess.append(c)
+        en_mess.append(c)
 
-    return encrypt_mess
+    return en_mess
+
+def decrypt_mess(mess, n, d):
+    mess_int = [int(letter, 16) for letter in mess]
+
+    de_mess = []
+
+    for letter in mess_int:
+        m = pow(letter, d, n)
+
+    return de_mess

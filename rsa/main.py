@@ -15,10 +15,13 @@ def main():
         case "cipher-mess":
             file = sys.stdin.readline().strip()
             mess = sys.stdin.readline().strip()
+            en_file = sys.stdin.readline().strip()
+
             mess = list(mess)
             mess_asc = [hex(ord(word))[2:] for word in mess]
             mess_asc_str = " ".join(mess_asc)
-            print(mess_asc_str)
+            
+            print(f"Message before encryption: {mess_asc_str}")
             
             with open(file, "r") as f:
                 n = int(f.readline().strip())
@@ -27,7 +30,12 @@ def main():
             cipher_mess = rsa.cipher_mess(mess_asc, n, e)
             cipher_mess_hex = [hex(word)[2:] for word in cipher_mess]
             mess_hex_str = " ".join(cipher_mess_hex)
-            print(mess_hex_str)
+            
+            with open(en_file, "w") as f:
+                f.write(mess_hex_str)
+
+            print(f"Message after encryption: {mess_hex_str}")
+            
 
 if __name__ == "__main__":
     main()
