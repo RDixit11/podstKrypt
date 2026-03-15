@@ -35,7 +35,7 @@ def generate_keys():
 
     return n,e,d
 
-def cipher_mess(mess, n, e, d):
+def cipher_mess(mess, n, e):
     mess_int = [int(letter,16) for letter in mess]
     
     encrypt_mess=[]
@@ -43,5 +43,5 @@ def cipher_mess(mess, n, e, d):
     for letter in mess_int:
         c = pow(letter, e, n)
         encrypt_mess.append(c)
-    print(encrypt_mess)
+
     return encrypt_mess
