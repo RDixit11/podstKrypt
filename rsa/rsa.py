@@ -53,5 +53,5 @@ def decrypt_mess(mess, n, d):
 
     for letter in mess_int:
         m = pow(letter, d, n)
-
+        de_mess.append(m)
     return de_mess
