@@ -1,18 +1,16 @@
-import socket
 import dh
+import random
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+with open("comm.txt", "r") as f:
+    n_g = f.readline().split()
 
-s.connect(("127.0.0.1", 1234))
+n = int(n_g[0])
+g = int(n_g[1])
 
-n = dh.get_prime()
-while dh.check_prime(n) != True:
-    n = dh.get_prime()
-
-n = str(n)
-
-s.send(f"{n}".encode())
+print(n, g)
 
 y = random.randint(100000, 999999)
 
-s.close()
+Y = pow(g, y, n)
+
+print(Y)

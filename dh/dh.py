@@ -20,6 +20,3 @@ def get_prime():
         if check_prime(x) == True:
             return x
 
-
-
-

@@ -1,16 +1,16 @@
-import socket
+import random
+import dh
+from sympy import primitive_root
 
-s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+n = dh.get_prime()
 
-s.bind(("127.0.0.1", 1234))
-s.listen(1)
+g = primitive_root(n)
 
-conn, addr = s.accept()
+with open("comm.txt", "w") as f:
+    f.write(f"{str(n)} {str(g)}\n")
 
-data = conn.recv(1024)
+x = random.randint(100000, 999999)
 
-print(data.decode())
+X = pow(g,x,n)
 
-x = random.randint(100000, 999999) # private key
-
-conn.close()
+print(X)
