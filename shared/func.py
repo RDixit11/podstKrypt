@@ -14,9 +14,9 @@ def check_prime(n):
 
     return True
 
-def get_prime():
+def get_prime(l, h):
     while True:
-        x = random.randint(1000,9999)
+        x = random.randint(l,h)
         if check_prime(x) == True:
             return x
 

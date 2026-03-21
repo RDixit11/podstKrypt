@@ -1,11 +1,11 @@
 from multiprocessing import Process, Queue
 import random
 from sympy import primitive_root
-import dh
+from shared import func
 
 def a_proc(q_a_b, q_b_a):
     print("Generating n and g...")
-    n = dh.get_prime()
+    n = func.get_prime(1000, 9999)
     g = primitive_root(n)
     print(f"A sending n ({n}) and g ({g}) to B...")
 
