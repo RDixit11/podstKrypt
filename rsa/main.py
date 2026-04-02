@@ -37,8 +37,8 @@ def main():
             print(f"Message after encryption: {mess_hex_str}")
         
         case "decrypt-mess":
-            file = sys.stdin.readline().strip()
-            en_file = sys.stdin.readline().strip()
+            file = sys.stdin.readline().strip() # plik zawierajacy klucze
+            en_file = sys.stdin.readline().strip() # plik z zaszyfrowana wiadomoscia
 
             with open(file, "r") as f:
                 n = int(f.readline().strip())
