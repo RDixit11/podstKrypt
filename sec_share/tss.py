@@ -1,12 +1,12 @@
 import random
-import secrets
 
 def secret_split(secret, n, k):
     s_list=[]
     total = 0
 
     for i in range(n-1):
-        val = secrets.randbelow(k)
+        #val = secrets.randbelow(k)
+        val = random.randint(0, k-1)
         s_list.append(val)
         total = total + val
     
